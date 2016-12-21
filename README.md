@@ -1,4 +1,4 @@
-# Como va mi tramite
+# ¿Cómo va mi trámite?
 
 ### Instrucciones    
 * Clonar el repositorio - ```git clone https://github.com/fcopantoja/sips.git```  
