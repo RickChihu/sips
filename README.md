@@ -1,4 +1,4 @@
-# sips
+# Como va mi tramite
 
 ### Instrucciones    
 * Clonar el repositorio - ```git clone https://github.com/fcopantoja/sips.git```  
