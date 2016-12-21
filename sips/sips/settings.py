@@ -25,7 +25,7 @@ SECRET_KEY = '%3ww+8229dzg^+pe8hv_&pu%g=tfk8tnr_ye%y9+vvou(3p&k7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.41.46.30']
+ALLOWED_HOSTS = ['52.41.46.30', 'localhost']
 
 
 # Application definition
@@ -74,10 +74,21 @@ WSGI_APPLICATION = 'sips.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sips',
+        'USER': 'sips',
+        'PASSWORD': 'sips123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
