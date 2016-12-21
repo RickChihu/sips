@@ -5,8 +5,8 @@
 * Instalar python 2 - ```https://www.python.org/downloads/windows/```  
 * * Panel de control > Sistema y seguridad > Sistema > Configuración avanzada del sistema > Opciones avanzadas > Variables de entorno > Variables del sistema > Path > Editar; Pegamos (";C:\Python27;C:\Python27\Scripts\") {"C:\Python27" es donde se instalo Python 2} > Aceptar.
 * Instalar pip - ```https://pip.pypa.io/en/stable/installing/```  
-- Hacer clic en descargar, nos manda a otra página, clic izquierdo > Guardar como... 
-- En cmd dirigirnos a la carpeta donde se guardó y ejecutar comando
+* * Hacer clic en descargar, nos manda a otra página, clic izquierdo > Guardar como... 
+* * En cmd dirigirnos a la carpeta donde se guardó y ejecutar comando
 * Instalar virtualenv - ```pip install virtualenv```  
 * Crear ambiente virtual - ```virtualenv sips``` (Ejecutar en otro directorio, por ejemplo /home/envs)
 * * Cualquier otro directorio que no sea el del GitHub
