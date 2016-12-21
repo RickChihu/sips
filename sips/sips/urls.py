@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from blog.views import blog_view
 from landing.views import landing_view, login_view, logout_view, home
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
     url(r'^home/', home, name='home'),
+    url(r'^blog/', blog_view, name='blog'),
 ]

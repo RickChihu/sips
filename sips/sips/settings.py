@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
     'landing'
 ]
 
@@ -87,7 +88,7 @@ DATABASES = {
         'NAME': 'sips',
         'USER': 'sips',
         'PASSWORD': 'sips123',
-        'HOST': 'localhost',
+        'HOST': '52.41.46.30',
         'PORT': '',
     }
 }
