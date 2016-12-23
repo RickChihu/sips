@@ -9,6 +9,14 @@ STATUS_CHOICES = (
     ('en_proceso', 'En Proceso'),
 )
 
+
+class Municipio(models.Model):
+    name = models.CharField(max_length=100, blank=False, null=False)
+
+    def __unicode__(self):
+        return '%s' % self.name
+
+
 class Tipo(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
 
@@ -22,6 +30,7 @@ class Asunto(models.Model):
     curp = models.CharField(max_length=100, blank=False, null=False)
     domicilio = models.CharField(max_length=100, blank=False, null=False)
     colonia = models.CharField(max_length=100, blank=False, null=False)
+    municipio = models.ForeignKey(Municipio)
     asunto = models.ForeignKey(Tipo)
     competencia_ps = models.BooleanField('Competencia de la Procuraduria Social', default=False)
     added = models.DateTimeField(auto_now_add=True)
