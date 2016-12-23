@@ -17,3 +17,9 @@
 
 URL Amazon: http://52.41.46.30:9000/  
 Django Admin URL: http://52.41.46.30:9000/admin  
+
+### Instrucciones  
+* Para instalar nuevos paquetes: 
+* * Activar ambiente virtual 
+* * Entrar al directorio del proyecto y correr ```pip install -r requirements.txt```
+
