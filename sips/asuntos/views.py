@@ -44,6 +44,7 @@ def asignar_agente(request, pk):
     elif request.method == 'POST':
         agente = User.objects.get(pk=request.POST.get('agente', ''))
         asunto.agente_social = agente
+        asunto.status = 'en_proceso'
         asunto.save()
 
         return redirect(reverse('listado_asuntos'))

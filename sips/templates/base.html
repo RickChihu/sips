@@ -60,14 +60,10 @@
           <div class="menu_section">
             <h3>General</h3>
             <ul class="nav side-menu">
-              <li><a><i class="fa fa-home"></i> Asuntos <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="{% url 'crear_asunto' %}">Crear</a></li>
-                  <li><a href="{% url 'listado_asuntos' %}">Lista</a></li>
-                </ul>
-              </li>
+              <li><a href="{% url 'crear_asunto' %}"> <i class="fa fa-home"></i> Atención Inicial</a></li>
+              <li><a href="{% url 'listado_asuntos' %}"> <i class="fa fa-list"></i> Asignación de Asuntos</a></li>
 
-              <li><a><i class="fa fa-home"></i> Agentes <span class="fa fa-chevron-down"></span></a>
+              <li><a><i class="fa fa-user"></i> Agentes <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                   <li><a href="{% url 'listado_agentes' %}">Lista</a></li>
                 </ul>
