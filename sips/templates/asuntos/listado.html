@@ -33,7 +33,7 @@
               <td>{{ object.nombre }}</td>
               <td>
                 {% if not object.agente_social %}
-                  <a href="#">Asignar Agente</a>
+                  <a href="{% url 'asignar_agente' object.id %}">Asignar Agente</a>
                 {% else %}
                   {{ object.agente_social }}
                 {% endif %}
