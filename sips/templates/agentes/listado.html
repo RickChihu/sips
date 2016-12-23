@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load agentes_tags %}
 
 {% block content %}
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Asuntos <small></small></h2>
+        <h2>Agentes <small></small></h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -17,28 +18,21 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>Folio</th>
-            <th>Fecha</th>
-            <th>Asunto</th>
             <th>Nombre</th>
-            <th>Agente</th>
+            <th>Total de Asuntos</th>
+            <th>Atendidos</th>
+            <th>No Atendidos</th>
+            <th>En proceso</th>
           </tr>
           </thead>
           <tbody>
           {% for object in object_list %}
             <tr>
-              <th scope="row">{{ object.folio_ }}</th>
-              <td>{{ object.added|date:"M d, Y" }}</td>
-              <td>{{ object.asunto }}</td>
-              <td>{{ object.nombre }}</td>
-              <td>
-                {% if not object.agente_social %}
-                  <a href="#">Asignar Agente</a>
-                {% else %}
-                  {{ object.agente_social }}
-                {% endif %}
-
-              </td>
+              <th scope="row">{{ object.username }}</th>
+              <td>{{ object|total_asuntos }}</td>
+              <td>{{ object|total_atendidos }}</td>
+              <td>{{ object|total_no_atendidos }}</td>
+              <td>{{ object|total_en_proceso }}</td>
             </tr>
           {% endfor %}
           </tbody>

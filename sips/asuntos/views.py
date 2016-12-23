@@ -9,7 +9,7 @@ from asuntos.models import Asunto
 
 class CreateAsuntoView(CreateView):
     model = Asunto
-    fields = ['nombre', 'curp', 'domicilio', 'colonia', 'asunto', 'competencia_ps']
+    fields = ['nombre', 'curp', 'domicilio', 'colonia', 'asunto', 'competencia_ps', 'agente_social']
     template_name = 'asuntos/asunto_form.html'
     success_url = reverse_lazy('listado_asuntos')
 

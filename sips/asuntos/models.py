@@ -1,5 +1,6 @@
 import uuid
 
+from django.contrib.auth.models import User
 from django.db import models
 
 STATUS_CHOICES = (
@@ -25,6 +26,10 @@ class Asunto(models.Model):
     competencia_ps = models.BooleanField('Competencia de la Procuraduria Social', default=False)
     added = models.DateTimeField(auto_now_add=True)
     status = models.CharField(choices=STATUS_CHOICES, null=True, max_length=20, blank=True)
+    agente_social = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
         return '%s' % self.name
+
+    def folio_(self):
+        return (str(self.folio)[:8]).upper()
