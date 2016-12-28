@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'asuntos',
     'agentes',
     'blog',
-    'landing'
+    'landing',
+    'subprocuraduria'
 ]
 
 MIDDLEWARE = [
