@@ -18,14 +18,12 @@
           <thead>
           <tr>
             <th>Nombre</th>
-            <th>Fecha</th>
           </tr>
           </thead>
           <tbody>
           {% for object in object_list %}
             <tr>
               <th scope="row">{{ object.nombre }}</th>
-              <td>{{ object.nombre }}</td>
             </tr>
           {% endfor %}
           </tbody>
