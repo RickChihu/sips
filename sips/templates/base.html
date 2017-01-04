@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load bootstrap3 %}
+{% load auth_tags %}
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -65,20 +66,25 @@
             <h3>General</h3>
             <ul class="nav side-menu">
               <li><a href="{% url 'crear_asunto' %}"> <i class="fa fa-home"></i> Atención Inicial</a></li>
-              <li><a href="{% url 'listado_asuntos' %}"> <i class="fa fa-list"></i> Asignación de Asuntos</a></li>
+              <li><a href="{% url 'listado_asuntos' %}"> <i class="fa fa-list"></i> Asuntos</a></li>
 
-              <li><a><i class="fa fa-user"></i> Agentes <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="{% url 'listado_agentes' %}">Lista</a></li>
-                </ul>
-              </li>
+              {% if request.user|has_group:"AGENTE_SOCIAL" %}
+                <li><a href="{% url 'agenda' %}"> <i class="fa fa-calendar"></i> Agenda</a></li>
+              {% endif %}
 
-              <li><a><i class="fa fa-user"></i> Administración <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="{% url 'listado_subprocuradurias' %}">Subprocuradurias</a></li>
-                  <li><a href="{% url 'listado_direcciones' %}">Direcciones</a></li>
-                </ul>
-              </li>
+              {% if request.user|has_group:"DIRECTIVO" %}
+                <li><a><i class="fa fa-user"></i> Agentes <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="{% url 'listado_agentes' %}">Lista</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-user"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="{% url 'listado_subprocuradurias' %}">Subprocuradurias</a></li>
+                    <li><a href="{% url 'listado_direcciones' %}">Direcciones</a></li>
+                  </ul>
+                </li>
+              {% endif %}
 
             </ul>
           </div>

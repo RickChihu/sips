@@ -31,7 +31,11 @@ class AsuntosListView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = Asunto.objects.all().order_by('-id')
+        if self.request.user.groups.filter(name__in=[AGENTE_SOCIAL]):
+            queryset = Asunto.objects.filter(agente_social=self.request.user).order_by('-id')
+        else:
+            queryset = Asunto.objects.all().order_by('-id')
+
         return queryset
 
 
