@@ -42,3 +42,12 @@ class Asunto(models.Model):
 
     def folio_(self):
         return (str(self.folio)[:8]).upper()
+
+
+class AsuntoEvento(models.Model):
+    asunto = models.ForeignKey(Asunto)
+    fecha_cita_usuario = models.DateTimeField(null=False)
+    observaciones_cita_usuario = models.TextField(blank=True, null=False)
+    fecha_visita_juzgado = models.DateTimeField(null=False)
+    juzgado = models.CharField(max_length=100, blank=False, null=False)
+    observaciones_visita_juzgado = models.TextField(blank=True, null=False)

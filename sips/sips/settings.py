@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'agentes',
     'blog',
     'landing',
-    'subprocuraduria'
+    'subprocuraduria',
+    'datetimewidget'
 ]
 
 MIDDLEWARE = [

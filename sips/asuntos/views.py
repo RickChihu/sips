@@ -5,7 +5,8 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 
-from asuntos.models import Asunto
+from asuntos.forms import AsuntoEventoForm
+from asuntos.models import Asunto, AsuntoEvento
 from utils.constants import AGENTE_SOCIAL
 
 
@@ -48,3 +49,13 @@ def asignar_agente(request, pk):
         asunto.save()
 
         return redirect(reverse('listado_asuntos'))
+
+
+class CreateAsuntoEventoView(CreateView):
+    form_class = AsuntoEventoForm
+    template_name = 'asuntos/asunto_evento_form.html'
+    success_url = reverse_lazy('listado_asunto_eventos')
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateAsuntoEventoView, self).get_context_data(**kwargs)
+        return context
