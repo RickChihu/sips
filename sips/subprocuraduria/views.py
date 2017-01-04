@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy, reverse
 
@@ -15,6 +15,14 @@ class CreateSubprocuraduriaView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateSubprocuraduriaView, self).get_context_data(**kwargs)
         return context
+
+
+class EditSubprocuraduriaView(UpdateView):
+    model = Subprocuraduria
+    fields = '__all__'
+    template_name = 'subprocuradurias/subprocuraduria_form.html'
+    success_url = reverse_lazy('listado_subprocuradurias')
+
 
 class SubprocuraduriaListView(ListView):
     model = Subprocuraduria

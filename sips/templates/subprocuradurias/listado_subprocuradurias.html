@@ -18,12 +18,26 @@
           <thead>
           <tr>
             <th>Nombre</th>
+            <th>Direcciones</th>
+            <th>Usuarios</th>
           </tr>
           </thead>
           <tbody>
           {% for object in object_list %}
             <tr>
-              <th scope="row">{{ object.nombre }}</th>
+              <th scope="row">
+                <a href="{% url 'editar_subprocuraduria' object.id %}">{{ object.nombre }}</a>
+              </th>
+              <th scope="row">
+                {% for direccion in object.direccion_set.all %}
+                  {{ direccion.nombre }},
+                {% endfor %}
+              </th>
+              <th scope="row">
+                {% for usuario in object.usuarios.all %}
+                  {{ usuario.username }}
+                {% endfor %}
+              </th>
             </tr>
           {% endfor %}
           </tbody>
