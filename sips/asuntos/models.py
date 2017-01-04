@@ -38,7 +38,7 @@ class Asunto(models.Model):
     agente_social = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
-        return '%s' % self.folio
+        return '%s' % (str(self.folio)[:8]).upper()
 
     def folio_(self):
         return (str(self.folio)[:8]).upper()

@@ -54,8 +54,39 @@ def asignar_agente(request, pk):
 class CreateAsuntoEventoView(CreateView):
     form_class = AsuntoEventoForm
     template_name = 'asuntos/asunto_evento_form.html'
-    success_url = reverse_lazy('listado_asunto_eventos')
+    success_url = reverse_lazy('listado_asuntos')
 
     def get_context_data(self, **kwargs):
         context = super(CreateAsuntoEventoView, self).get_context_data(**kwargs)
         return context
+
+    def get_initial(self):
+        asunto = get_object_or_404(Asunto, pk=self.kwargs.get('pk'))
+        return {'asunto': asunto}
+
+    def form_valid(self, form):
+        evento = form.save(commit=False)
+        asunto = get_object_or_404(Asunto, pk=self.kwargs.get('pk'))
+        evento.asunto = asunto
+        evento.save()
+        return super(CreateAsuntoEventoView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('listado_eventos', kwargs={'pk': self.kwargs['pk']})
+
+
+class AsuntoEventosListView(ListView):
+    model = AsuntoEvento
+    paginate_by = 50
+    template_name = 'asuntos/listado_eventos.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AsuntoEventosListView, self).get_context_data(**kwargs)
+        context['asunto'] = get_object_or_404(Asunto, pk=self.kwargs.get('pk'))
+        return context
+
+    def get_queryset(self):
+        queryset = AsuntoEvento.objects.filter(asunto=get_object_or_404(Asunto, pk=self.kwargs.get('pk'))).order_by('-id')
+        return queryset
+
+

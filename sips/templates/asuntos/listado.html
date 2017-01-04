@@ -27,7 +27,7 @@
           <tbody>
           {% for object in object_list %}
             <tr>
-              <th scope="row">{{ object.folio_ }}</th>
+              <th scope="row"><a href="{% url 'listado_eventos' object.id %}">{{ object.folio_ }}</a></th>
               <td>{{ object.added|date:"M d, Y" }}</td>
               <td>{{ object.asunto }}</td>
               <td>{{ object.nombre }}</td>
