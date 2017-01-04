@@ -11,7 +11,7 @@
 * Crear ambiente virtual - ```virtualenv sips``` (Ejecutar en otro directorio, por ejemplo /home/envs)
 * * Cualquier otro directorio que no sea el del GitHub
 * Activar ambiente virtual MAC OS- ```source sips/bin/activate```  
-* Activar ambiente virtual Windows- ```sips/Scripts/activate``` 
+* Activar ambiente virtual Windows- ```sips\Scripts\activate``` 
 * Instalar paquetes: ```pip install -r /path_del_proyecto/sips/requirements.txt```  
 * Arrancar proyecto Django: ```python manage.py runserver```  
 
