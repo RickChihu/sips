@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -28,6 +30,22 @@ class AsuntosListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(AsuntosListView, self).get_context_data(**kwargs)
+
+        if self.request.user.groups.filter(name__in=[AGENTE_SOCIAL]):
+            now = datetime.today()
+            one_week_later = now + timedelta(days=7)
+
+            queryset = AsuntoEvento.objects.filter(
+                asunto__agente_social=self.request.user,
+                fecha_visita_juzgado__gte=now,
+                fecha_visita_juzgado__lte=one_week_later
+            ).order_by('fecha_visita_juzgado')
+
+            self.request.session['alertas'] = [{'asunto': x.asunto.asunto.name,
+                                                'folio': x.asunto.folio_(),
+                                                'fecha': x.fecha_visita_juzgado.strftime("%Y-%m-%d %H:%M"),
+                                                'juzgado': x.juzgado} for x in queryset]
+
         return context
 
     def get_queryset(self):

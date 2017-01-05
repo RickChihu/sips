@@ -119,57 +119,23 @@
             <li role="presentation" class="dropdown">
               <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-green">6</span>
+                <span class="badge bg-green">{{ request.session.alertas|length }}</span>
               </a>
               <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                <li>
-                  <a>
-                    <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
+                {% for alerta in request.session.alertas %}
+                  <li>
+                    <a>
+                      <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                          <span>{{ alerta.asunto }}</span>
+                          <span class="time">{{ alerta.folio }}</span>
                         </span>
                         <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                          {{ alerta.fecha }} | {{ alerta.juzgado }}
                         </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
+                    </a>
+                  </li>
+                {% endfor %}
                 <li>
                   <div class="text-center">
                     <a>
