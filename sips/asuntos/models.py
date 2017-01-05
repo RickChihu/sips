@@ -43,6 +43,11 @@ class Asunto(models.Model):
     def folio_(self):
         return (str(self.folio)[:8]).upper()
 
+    def status_(self):
+        for choice in STATUS_CHOICES:
+            if self.status == choice[0]:
+                return choice[1]
+
 
 class AsuntoEvento(models.Model):
     asunto = models.ForeignKey(Asunto)

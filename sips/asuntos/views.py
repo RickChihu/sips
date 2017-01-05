@@ -94,3 +94,12 @@ class AsuntoEventosListView(ListView):
         return queryset
 
 
+def cambiar_status(request, pk):
+    asunto = get_object_or_404(Asunto, pk=pk)
+
+    if request.method == 'GET':
+        status = request.GET.get('status')
+        asunto.status = status
+        asunto.save()
+
+        return redirect(reverse('listado_asuntos'))
