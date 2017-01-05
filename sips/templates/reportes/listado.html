@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Reportes <small></small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <td>Reporte de Asuntos nuevos en el mes</td>
+            <td>
+              <a href="{% url 'reporte1_csv' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                      data-original-title="Exportar a Word" class="btn btn-sm tooltips">
+                <i class="fa fa-file-word-o"></i>
+              </a>
+{#              <button title="" data-placement="top" data-toggle="tooltip" type="button"#}
+{#                      data-original-title="Exportar a Excel" class="btn btn-sm tooltips">#}
+{#                <i class="fa fa-file-excel-o"></i>#}
+{#              </button>#}
+{#              <button title="" data-placement="top" data-toggle="tooltip" type="button"#}
+{#                      data-original-title="Exportar a PDF" class="btn btn-sm tooltips">#}
+{#                <i class="fa fa-file-pdf-o"></i>#}
+{#              </button>#}
+            </td>
+          </tr>
+          <tr>
+            <td>Reporte de Asuntos activos en el mes anterior</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

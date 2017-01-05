@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^blog/', blog_view, name='blog'),
     url(r'^blog-admin/', include('blog.urls')),
     url(r'^asuntos/', include('asuntos.urls')),
+    url(r'^reportes/', include('reportes.urls')),
     url(r'^agentes/', include('agentes.urls')),
     url(r'^subprocuraduria/', include('subprocuraduria.urls')),
 ]
