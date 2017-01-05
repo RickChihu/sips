@@ -17,22 +17,35 @@
             <td>Reporte de Asuntos nuevos en el mes</td>
             <td>
               <a href="{% url 'reporte1_csv' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
-                      data-original-title="Exportar a Word" class="btn btn-sm tooltips">
-                <i class="fa fa-file-word-o"></i>
+                 data-original-title="Exportar a Excel" class="btn tooltips">
+                <i class="fa fa-2x  fa-file-excel-o"></i>
               </a>
-{#              <button title="" data-placement="top" data-toggle="tooltip" type="button"#}
-{#                      data-original-title="Exportar a Excel" class="btn btn-sm tooltips">#}
-{#                <i class="fa fa-file-excel-o"></i>#}
-{#              </button>#}
-{#              <button title="" data-placement="top" data-toggle="tooltip" type="button"#}
-{#                      data-original-title="Exportar a PDF" class="btn btn-sm tooltips">#}
-{#                <i class="fa fa-file-pdf-o"></i>#}
-{#              </button>#}
+              <a href="{% url 'reporte1_word' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                 data-original-title="Exportar a Word" class="btn tooltips">
+                <i class="fa fa-2x  fa-file-word-o"></i>
+              </a>
+              <a href="{% url 'reporte1_pdf' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                 data-original-title="Exportar a PDF" class="btn tooltips">
+                <i class="fa fa-2x fa-file-pdf-o"></i>
+              </a>
             </td>
           </tr>
           <tr>
             <td>Reporte de Asuntos activos en el mes anterior</td>
-            <td></td>
+            <td>
+              <a href="{% url 'reporte2_csv' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                 data-original-title="Exportar a Excel" class="btn tooltips">
+                <i class="fa fa-2x  fa-file-excel-o"></i>
+              </a>
+              <a href="{% url 'reporte2_word' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                 data-original-title="Exportar a Word" class="btn tooltips">
+                <i class="fa fa-2x  fa-file-word-o"></i>
+              </a>
+              <a href="{% url 'reporte2_pdf' %}" title="" data-placement="top" data-toggle="tooltip" type="button"
+                 data-original-title="Exportar a PDF" class="btn tooltips">
+                <i class="fa fa-2x  fa-file-pdf-o"></i>
+              </a>
+            </td>
           </tr>
           </tbody>
         </table>
