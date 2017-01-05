@@ -19,6 +19,7 @@ def export_asuntos_nuevos_csv(request):
 
     asuntos = Asunto.objects.all()
     for asunto in asuntos:
-        writer.writerow(asunto)
+        pass
+        # writer.writerow(asunto)
 
     return response
