@@ -34,7 +34,7 @@ class Asunto(models.Model):
     asunto = models.ForeignKey(Tipo)
     competencia_ps = models.BooleanField('Competencia de la Procuraduria Social', default=False)
     added = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(choices=STATUS_CHOICES, null=True, max_length=20, blank=True)
+    status = models.CharField(choices=STATUS_CHOICES, null=True, max_length=20, blank=True, default='en_proceso')
     agente_social = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
