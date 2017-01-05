@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.contrib.auth.models import User
 from django.views.generic.list import ListView
 
@@ -26,8 +27,22 @@ class AgendaListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(AgendaListView, self).get_context_data(**kwargs)
+        now = datetime.today()
+
+        context['historic'] = AsuntoEvento.objects.filter(
+            asunto__agente_social=self.request.user,
+            fecha_visita_juzgado__lte=now
+        ).order_by('fecha_visita_juzgado')
+
         return context
 
     def get_queryset(self):
-        queryset = AsuntoEvento.objects.filter(asunto__agente_social=self.request.user).order_by('fecha_cita_usuario')
+        now = datetime.today()
+        one_week_later = now + timedelta(days=7)
+
+        queryset = AsuntoEvento.objects.filter(
+            asunto__agente_social=self.request.user,
+            fecha_visita_juzgado__gte=now,
+            fecha_visita_juzgado__lte=one_week_later
+        ).order_by('fecha_visita_juzgado')
         return queryset

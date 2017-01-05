@@ -18,7 +18,6 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>Alerta</th>
             <th>Fecha</th>
             <th>Hora</th>
             <th>Asunto</th>
@@ -31,11 +30,53 @@
           <tbody>
           {% for object in object_list %}
             <tr>
-              <th scope="row">
-                <input type="checkbox">
-              </th>
-              <td>{{ object.fecha_cita_usuario|date:"M d, Y" }}</td>
-              <td>{{ object.fecha_cita_usuario|date:"H:m A" }}</td>
+              <td>{{ object.fecha_visita_juzgado|date:"M d, Y" }}</td>
+              <td>{{ object.fecha_visita_juzgado|date:"H:m A" }}</td>
+              <td>{{ object.asunto.asunto }} - {{ object.asunto }}</td>
+              <td></td>
+              <td>{{ object.juzgado }} </td>
+              <td></td>
+              <td></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Histórico <small>Actividades</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li><a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Asunto</th>
+            <th>Etapa Procesal</th>
+            <th>Juzgado/Instancia</th>
+            <th>Recursos</th>
+            <th>Crear Archivo</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for object in historic %}
+            <tr>
+              <td scope="row">{{ object.fecha_visita_juzgado|date:"M d, Y" }}</td>
+              <td>{{ object.fecha_visita_juzgado|date:"H:m A" }}</td>
               <td>{{ object.asunto.asunto }} - {{ object.asunto }}</td>
               <td></td>
               <td>{{ object.juzgado }} </td>
