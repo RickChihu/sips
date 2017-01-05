@@ -25,7 +25,7 @@ def export_asuntos_nuevos_csv(request):
     first_day_of_month = today.replace(day=1)
 
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+    response['Content-Disposition'] = 'attachment; filename="reporte.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['Asunto', 'Folio', 'Nombre', 'Curp', 'Domicilio', 'Fecha Creacion', 'Status', 'Agente Social'])
@@ -52,7 +52,7 @@ def export_asuntos_mes_pasado_csv(request):
     first_day_of_month_before = today - timedelta(days=30)
 
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+    response['Content-Disposition'] = 'attachment; filename="reporte.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['Asunto', 'Folio', 'Nombre', 'Curp', 'Domicilio', 'Fecha Creacion', 'Status', 'Agente Social'])
@@ -111,7 +111,7 @@ def export_asuntos_nuevos_word(request):
         content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     )
 
-    response['Content-Disposition'] = 'attachment; filename=example.docx'
+    response['Content-Disposition'] = 'attachment; filename=reporte.docx'
     response['Content-Length'] = length
     return response
 
@@ -155,7 +155,7 @@ def export_asuntos_mes_pasado_word(request):
         content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     )
 
-    response['Content-Disposition'] = 'attachment; filename=example.docx'
+    response['Content-Disposition'] = 'attachment; filename=reporte.docx'
     response['Content-Length'] = length
     return response
 
